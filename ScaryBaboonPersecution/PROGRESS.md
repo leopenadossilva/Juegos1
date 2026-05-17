@@ -15,10 +15,10 @@ M0 done. M1 starting — first real tower. Camera rig is the natural first concr
 - [x] Round 2 open questions answered + applied (typo fixed in project.godot, gamepad bindings added)
 
 ### M1 — First real tower
-- [ ] Build one tower level (vertical, 3–4 screens tall)
-- [ ] Camera rig: vertical follow with deadzone
+- [ ] Build one tower level (vertical, 3 screens tall — see BRAINSTORMING decision)
+- [x] Camera rig: vertical follow with deadzone (Camera2D in player.tscn — smoothing speed 5, horizontal deadzone 0.1, vertical deadzone 0.3)
 - [ ] Placeholder win condition (reach top)
-- [ ] Death + respawn flow
+- [ ] Death + respawn flow (instant restart at tower bottom)
 
 ### M2 — Mission system v1
 - [ ] Mission abstraction (name, win cond, fail cond, optional timer)
