@@ -13,7 +13,7 @@ script = ExtResource("1_tower")
 position = Vector2(0, -64)
 
 [node name="Goal" type="Area2D" parent="."]
-position = Vector2(-190, -1680)
+position = Vector2(-100, -1430)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_goal")

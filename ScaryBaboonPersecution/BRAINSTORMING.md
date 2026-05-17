@@ -14,7 +14,7 @@ Run + accel/decel, variable jump, coyote time, jump buffer, wall slide, wall jum
 Design levels and missions *around* these verbs before inventing new ones.
 
 ## Level shape
-Donkey Kong-style tower: a single vertical structure with platforms, walls to bounce off, gaps to dash across, one-way platforms. Camera scrolls vertically. Player can usually climb up and down freely until a mission constraint forces a direction.
+Towers are the *primary* layout — Donkey Kong-style vertical structures with platforms, walls to bounce off, gaps to dash across, one-way platforms; the camera scrolls vertically. But not every mission has to be a tower — some work better as **wider, semi-open-world rooms** where movement isn't strictly up/down. Pick the shape that fits the mission.
 
 ## Mission pool
 - **Collect N coins** before a timer runs out
@@ -38,6 +38,7 @@ Donkey Kong-style tower: a single vertical structure with platforms, walls to bo
 - **Death + respawn**: instant restart at the bottom of the tower. No mid-tower checkpoints.
 - **Tower scope**: 3 screens tall for the first prototype. Short enough to validate camera + missions cheaply; easy to grow once systems are stable.
 - **Coin types**: single generic coin.
+- **Traversal difficulty**: navigating a level (climbing, jumping, dashing through) should be *easy and flow-state*. The challenge comes from chasers, hazards, timers, and mission constraints — **not** from precision platforming. Towers should have wide platforms and gaps well within single-jump range; some levels are wider semi-open rooms instead of strictly vertical.
 
 ## Open questions (next round)
 _(none right now — surface new ones as they come up)_
