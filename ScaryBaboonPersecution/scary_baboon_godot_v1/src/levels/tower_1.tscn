@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://btowr1baboon1"]
+
+[ext_resource type="Script" path="res://src/levels/tower_1.gd" id="1_tower"]
+[ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="2_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_goal"]
+size = Vector2(200, 60)
+
+[node name="Tower1" type="Node2D"]
+script = ExtResource("1_tower")
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(0, -64)
+
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(-180, -1830)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("RectangleShape2D_goal")
+
+[node name="Visual" type="Polygon2D" parent="Goal"]
+color = Color(0.4, 0.85, 0.3, 1)
+polygon = PackedVector2Array(-100, -30, 100, -30, 100, 30, -100, 30)
