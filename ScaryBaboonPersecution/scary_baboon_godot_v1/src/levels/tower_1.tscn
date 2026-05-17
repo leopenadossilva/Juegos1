@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://btowr1baboon1"]
+[gd_scene format=3 uid="uid://btowr1baboon1"]
 
 [ext_resource type="Script" path="res://src/levels/tower_1.gd" id="1_tower"]
 [ext_resource type="PackedScene" uid="uid://ducp7rsjpf40n" path="res://src/player/player.tscn" id="2_player"]
@@ -13,7 +13,7 @@ script = ExtResource("1_tower")
 position = Vector2(0, -64)
 
 [node name="Goal" type="Area2D" parent="."]
-position = Vector2(-180, -1830)
+position = Vector2(-190, -1680)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_goal")
