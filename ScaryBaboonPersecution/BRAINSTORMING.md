@@ -32,16 +32,15 @@ Donkey Kong-style tower: a single vertical structure with platforms, walls to bo
 - **Structure**: one long campaign of missions, navigated via a simple world map.
 - **Persistence**: session-based for now (no save). Real persistence later, when there's something worth saving.
 - **Multiplayer**: single-player now. Multiplayer is a future direction, not a current constraint — but worth keeping in mind for systems that would be painful to retrofit (input, state ownership, networking-friendly determinism).
-- **Vitality**: stamina-style bar, 100% → 0%, each hit decreases. Flavor details (drains on dash too? heal source? i-frames?) still TBD — see Open questions.
+- **Vitality (stamina)**: one bar, 100% → 0%. Drains **25% per enemy hit**, **regens 15%/sec** while on the floor, **i-frames ~0.8s** after a hit. Dash and wall-jump cost nothing — controller's dash cooldown already gates dashing, and the parkour verbs shouldn't be taxed. Naming it "stamina" rather than HP fits the chase fantasy: it's about managing exhaustion under pressure, finding ground to recover.
+- **Tile pipeline**: Godot's native `TileMapLayer` (4.6). Built-in, no external tool, fast in-editor iteration.
+- **Gamepad**: wired up day-one. D-pad + left stick for movement; A = jump, X = dash (Xbox naming).
+- **Death + respawn**: instant restart at the bottom of the tower. No mid-tower checkpoints.
+- **Tower scope**: 3 screens tall for the first prototype. Short enough to validate camera + missions cheaply; easy to grow once systems are stable.
+- **Coin types**: single generic coin.
 
 ## Open questions (next round)
-- **Stamina flavor**: pure HP (drains on hit only) or unified resource (also drains on dash/heavy actions)? Heal source (over time / safe zone / pickup / never)? I-frame duration after damage (~1s default)?
-- **Tile pipeline**: Godot's native `TileMapLayer` (4.6 has it) or external (Tiled)? Decide before authoring real levels.
-- **Gamepad support**: wire up day-one or later? Cheap to add now, painful to retrofit — especially with multiplayer-later in mind.
-- **Death + respawn**: instant restart at the bottom of the tower, mid-tower checkpoints, or die-once-restart-mission?
-- **Tower scope**: typical level is how many screens tall (3? 6? 10?)? Just a feel target for early levels.
-- **Coin types**: single generic coin, or multiple kinds (regular / bonus / mission-key)?
-- **Project title typo**: `project.godot` has "Scary Babbon (Persecution)" — fix to "Baboon" or keep as a meme?
+_(none right now — surface new ones as they come up)_
 
 
 

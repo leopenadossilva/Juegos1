@@ -1,7 +1,7 @@
 # Progress
 
 ## Current focus
-Bootstrapping: docs, getting the forked controller running locally, deciding the first vertical slice.
+M0 done. M1 starting — first real tower. Camera rig is the natural first concrete step (independent of art, missions, and enemies).
 
 ## Milestones
 
@@ -12,7 +12,7 @@ Bootstrapping: docs, getting the forked controller running locally, deciding the
 - [x] One-line answers for the open questions in BRAINSTORMING.md (round 1)
 - [x] Open project in Godot 4.6, confirm test levels run
 - [x] Re-skin player as a baboon using primitive shapes (brown body, yellow eyes, red rear, angled tail — all via z_index, no code changes)
-- [ ] Round 2 open questions answered (stamina flavor, tile pipeline, gamepad, death/respawn, tower scope, coin types, title typo)
+- [x] Round 2 open questions answered + applied (typo fixed in project.godot, gamepad bindings added)
 
 ### M1 — First real tower
 - [ ] Build one tower level (vertical, 3–4 screens tall)
