@@ -24,12 +24,24 @@ Donkey Kong-style tower: a single vertical structure with platforms, walls to bo
 - **No-touch**: reach the goal without touching hazard tiles
 - **Speedrun**: clear under a target time
 
-## Open questions
-- What chases the baboon? Visual + gameplay identity of the threat.
-- Art style: pixel art, flat vector, hand-drawn?
-- One long campaign or arcade-style standalone missions?
-- Persistence (unlocks, currency) or pure session-based?
-- Single-player only, or multiplayer later?
+## Decisions
+- **Persecutors**: enemies (multiple) behaviorally inspired by Pac-Man ghosts. Detailed AI deferred — start dumb, get smarter through iteration.
+- **Enemy roster**: one enemy type for now. Each level/mission decides how many to spawn.
+- **Art (current)**: primitive vector shapes — re-skin the existing player rig (`Shape` Node2D with `MeshInstance2D` children: Body + Eyes + a few extras for "baboon-ness"). The controller's squash/stretch/skew on the `Shape` parent gives juice for free.
+- **Pixel art**: deferred. Possibly never needed; revisit only if the primitive-shape look limits gameplay or fails to read on screen. If we do switch, it's a project-settings + asset pipeline pivot (see PROGRESS backlog).
+- **Structure**: one long campaign of missions, navigated via a simple world map.
+- **Persistence**: session-based for now (no save). Real persistence later, when there's something worth saving.
+- **Multiplayer**: single-player now. Multiplayer is a future direction, not a current constraint — but worth keeping in mind for systems that would be painful to retrofit (input, state ownership, networking-friendly determinism).
+- **Vitality**: stamina-style bar, 100% → 0%, each hit decreases. Flavor details (drains on dash too? heal source? i-frames?) still TBD — see Open questions.
+
+## Open questions (next round)
+- **Stamina flavor**: pure HP (drains on hit only) or unified resource (also drains on dash/heavy actions)? Heal source (over time / safe zone / pickup / never)? I-frame duration after damage (~1s default)?
+- **Tile pipeline**: Godot's native `TileMapLayer` (4.6 has it) or external (Tiled)? Decide before authoring real levels.
+- **Gamepad support**: wire up day-one or later? Cheap to add now, painful to retrofit — especially with multiplayer-later in mind.
+- **Death + respawn**: instant restart at the bottom of the tower, mid-tower checkpoints, or die-once-restart-mission?
+- **Tower scope**: typical level is how many screens tall (3? 6? 10?)? Just a feel target for early levels.
+- **Coin types**: single generic coin, or multiple kinds (regular / bonus / mission-key)?
+- **Project title typo**: `project.godot` has "Scary Babbon (Persecution)" — fix to "Baboon" or keep as a meme?
 
 
 

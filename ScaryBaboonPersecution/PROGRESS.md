@@ -8,9 +8,11 @@ Bootstrapping: docs, getting the forked controller running locally, deciding the
 ### M0 — Setup
 - [x] Fork controller, commit
 - [x] Write base docs (BRAINSTORMING, ARCHITECTURE, PROGRESS)
+- [x] Pick a placeholder art direction — primitive vector shapes (Option A: re-skin the existing player rig)
+- [x] One-line answers for the open questions in BRAINSTORMING.md (round 1)
 - [ ] Open project in Godot 4.6, confirm test levels run
-- [ ] Pick a placeholder art direction (good enough to move on)
-- [ ] One-line answers for the open questions in BRAINSTORMING.md
+- [ ] Re-skin player as a baboon using primitive shapes (recolor body, restyle eyes, add red rear + tail)
+- [ ] Round 2 open questions answered (stamina flavor, tile pipeline, gamepad, death/respawn, tower scope, coin types, title typo)
 
 ### M1 — First real tower
 - [ ] Build one tower level (vertical, 3–4 screens tall)
@@ -29,7 +31,8 @@ Bootstrapping: docs, getting the forked controller running locally, deciding the
 
 ## Backlog (no order yet)
 - More mission types (rescue, no-touch, speedrun)
-- Real art + audio pass
+- Pixel-perfect project setup — only if/when we commit to pixel art (see BRAINSTORMING)
+- Real art + audio pass (or refined primitive-shape style)
 - Main menu, level select
 - Save / persistence
 - Multiplayer (open question — see BRAINSTORMING)
