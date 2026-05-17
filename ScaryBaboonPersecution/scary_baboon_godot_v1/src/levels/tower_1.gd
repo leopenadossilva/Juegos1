@@ -1,8 +1,13 @@
 class_name Tower1
 extends Node2D
 
-const PLATFORM_COLOR := Color(0.42, 0.42, 0.5, 1.0)
+const PLATFORM_COLOR := Color(0.72, 0.55, 0.40, 1.0)
 const SPAWN_POSITION := Vector2(0, -64)
+const TILE_SIZE := 64.0
+const TEX_SIZE := 70.0
+const TEX_SCALE_Y := TILE_SIZE / TEX_SIZE
+
+const GRASS_TILE: Texture2D = preload("res://assets/tiles/grass/grassHalfMid.png")
 
 const PLATFORMS: Array[Rect2] = [
 	Rect2(-500, 0, 1000, 32),
@@ -47,13 +52,34 @@ func _add_platform(rect: Rect2) -> void:
 
 	var shape := RectangleShape2D.new()
 	shape.size = rect.size
-
 	var collision := CollisionShape2D.new()
 	collision.shape = shape
 	body.add_child(collision)
 
-	var hw := rect.size.x / 2.0
-	var hh := rect.size.y / 2.0
+	if rect.size.x >= rect.size.y:
+		_add_horizontal_tiles(body, rect.size)
+	else:
+		_add_polygon_visual(body, rect.size)
+
+	add_child(body)
+
+func _add_horizontal_tiles(body: StaticBody2D, size: Vector2) -> void:
+	var n := maxi(1, roundi(size.x / TILE_SIZE))
+	var tile_width := size.x / float(n)
+	var scale_x := tile_width / TEX_SIZE
+	for i in n:
+		var sprite := Sprite2D.new()
+		sprite.texture = GRASS_TILE
+		sprite.scale = Vector2(scale_x, TEX_SCALE_Y)
+		sprite.position = Vector2(
+			-size.x / 2.0 + (i + 0.5) * tile_width,
+			-size.y / 2.0,
+		)
+		body.add_child(sprite)
+
+func _add_polygon_visual(body: StaticBody2D, size: Vector2) -> void:
+	var hw := size.x / 2.0
+	var hh := size.y / 2.0
 	var poly := Polygon2D.new()
 	poly.polygon = PackedVector2Array([
 		Vector2(-hw, -hh),
@@ -63,5 +89,3 @@ func _add_platform(rect: Rect2) -> void:
 	])
 	poly.color = PLATFORM_COLOR
 	body.add_child(poly)
-
-	add_child(body)
