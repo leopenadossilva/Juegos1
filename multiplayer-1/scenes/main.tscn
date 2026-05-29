@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0gj4mw0p1qj0"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_main"]
+[ext_resource type="TileSet" uid="uid://b4mrpqyk1m2n0" path="res://resources/tileset_main.tres" id="2_tileset"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tileset")
+
+[node name="Objects" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tileset")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 160)
+zoom = Vector2(3, 3)
