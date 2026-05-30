@@ -43,6 +43,9 @@ var _restart_button: Button
 func _ready() -> void:
 	for rect: Rect2 in PLATFORMS:
 		_add_platform(rect)
+	# Player parts include z_index=-1 children (tail, rear); lift the whole
+	# player above tile z=0 so every part renders on top.
+	player.z_index = 2
 	goal.body_entered.connect(_on_goal_body_entered)
 	_build_game_over_ui()
 
@@ -172,13 +175,17 @@ func _add_horizontal_tiles(body: StaticBody2D, size: Vector2) -> void:
 	var n := maxi(1, roundi(size.x / TILE_SIZE))
 	var tile_width := size.x / float(n)
 	var scale_x := tile_width / TEX_SIZE
+	# Anchor sprite top at body top so the visible grass surface lines up with
+	# the collision surface the player stands on. The tile then hangs downward
+	# (dirt extends below the body), keeping the baboon visually on top.
+	var sprite_y := -size.y / 2.0 + TILE_SIZE / 2.0
 	for i in n:
 		var sprite := Sprite2D.new()
 		sprite.texture = GRASS_TILE
 		sprite.scale = Vector2(scale_x, TEX_SCALE_Y)
 		sprite.position = Vector2(
 			-size.x / 2.0 + (i + 0.5) * tile_width,
-			-size.y / 2.0,
+			sprite_y,
 		)
 		body.add_child(sprite)
 
